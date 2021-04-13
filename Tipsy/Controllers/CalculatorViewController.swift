@@ -11,6 +11,7 @@ import UIKit
 class CalculatorViewController: UIViewController {
     
     var tipAmount: Float = 0.1
+    var splitBetween: Int = 2
     
     @IBOutlet weak var billTextOutlet: UITextField!
     @IBOutlet weak var zeroPctButton: UIButton!
@@ -39,10 +40,13 @@ class CalculatorViewController: UIViewController {
     }
     
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
+        splitBetween = Int(sender.value)
+        splitNumberLabel.text = String(format: "%.0f", sender.value)
     }
     
     @IBAction func calculatePressed(_ sender: UIButton) {
         print(tipAmount)
+        print(splitBetween)
     }
     
 }
